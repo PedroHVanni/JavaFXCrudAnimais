@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="503.0" prefWidth="709.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.MainController">
+   <children>
+      <Pane layoutY="3.0" prefHeight="489.0" prefWidth="709.0" style="-fx-background-color: green;">
+         <children>
+            <TextField fx:id="txtAnimal" layoutX="83.0" layoutY="42.0" />
+            <Text fx:id="txtCor" layoutX="33.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cor:" />
+            <Button fx:id="btnDeletar" layoutX="546.0" layoutY="327.0" mnemonicParsing="false" text="Deletar" />
+            <Button fx:id="btnsalvar" layoutX="548.0" layoutY="274.0" mnemonicParsing="false" text="Salvar" />
+            <Text layoutX="-41.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal: " />
+            <Button layoutX="547.0" layoutY="385.0" mnemonicParsing="false" text="Button" />
+         </children>
+      </Pane>
+      <TableView fx:id="tblAnimal" layoutX="32.0" layoutY="247.0" prefHeight="200.0" prefWidth="454.0">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colAnimal" prefWidth="75.0" text="Animal" />
+            <TableColumn fx:id="colCor" prefWidth="75.0" text="Cor" />
+            <TableColumn fx:id="ColEspecie" prefWidth="75.0" text="Espécie" />
+          <TableColumn fx:id="colIdade" prefWidth="75.0" text="Idade" />
+            <TableColumn fx:id="colSexo" prefWidth="75.0" text="Sexo" />
+        </columns>
+      </TableView>
+      <TextField layoutX="82.0" layoutY="75.0" />
+      <Text fx:id="txtEspecie" layoutX="32.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Espécie:" />
+      <TextField layoutX="82.0" layoutY="108.0" />
+      <Text fx:id="txtIdade" layoutX="32.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Idade:" />
+      <TextField layoutX="82.0" layoutY="140.0" />
+      <Text fx:id="txtSexo" layoutX="32.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo:" />
+      <TextField layoutX="82.0" layoutY="174.0" />
+      <Text layoutX="32.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal: " />
+   </children>
+</AnchorPane>
