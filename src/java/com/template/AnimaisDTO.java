@@ -8,29 +8,6 @@ public class AnimaisDTO {
     private String idade;
     private String sexo;
 
-    // Construtor vazio (necessário em alguns casos)
-    public AnimalDTO() {
-    }
-
-    // Construtor para cadastro de novo animal (sem ID)
-    public AnimalDTO(String animal, String cor, String especie, String idade, String sexo) {
-        this.animal = animal;
-        this.cor = cor;
-        this.especie = especie;
-        this.idade = idade;
-        this.sexo = sexo;
-    }
-
-    // Construtor completo (usado ao buscar dados do banco)
-    public AnimalDTO(int id, String animal, String cor, String especie, String idade, String sexo) {
-        this.id = id;
-        this.animal = animal;
-        this.cor = cor;
-        this.especie = especie;
-        this.idade = idade;
-        this.sexo = sexo;
-    }
-
     // Retorna o ID do animal
     public int getId() {
         return id;
