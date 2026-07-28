@@ -1,0 +1,245 @@
+.root {
+
+    -fx-font-family: Arial;
+
+}
+
+
+
+/* TEXTOS */
+
+.text {
+
+    -fx-fill: #3B2414;
+
+    -fx-font-weight: bold;
+
+}
+
+
+
+
+
+
+/* CAMPOS */
+
+.text-field {
+
+
+    -fx-background-color: rgba(255,255,255,0.85);
+
+    -fx-border-color: #8B5A2B;
+
+    -fx-border-width: 2;
+
+
+    -fx-background-radius: 8;
+
+    -fx-border-radius: 8;
+
+
+}
+
+
+
+
+
+
+.text-field:focused {
+
+
+    -fx-border-color: #D2691E;
+
+}
+
+
+
+
+
+
+
+
+/* TABELA */
+
+
+.table-view {
+
+
+    -fx-background-color: rgba(255,255,255,0.75);
+
+    -fx-border-color: #8B5A2B;
+
+    -fx-border-radius: 8;
+
+}
+
+
+
+
+
+.table-view .column-header-background {
+
+
+    -fx-background-color: #8B5A2B;
+
+}
+
+
+
+
+
+.table-view .column-header .label {
+
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+}
+
+
+
+
+
+
+
+/* TODOS OS BOTÕES */
+
+.button {
+
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 10;
+
+    -fx-cursor: hand;
+
+}
+
+
+
+
+
+
+
+/* SALVAR */
+
+
+#btnSalvar {
+
+
+    -fx-background-color: #6B8E23;
+
+    -fx-text-fill:white;
+
+}
+
+
+#btnSalvar:hover {
+
+
+    -fx-background-color:#556B2F;
+
+}
+
+
+
+
+
+
+
+/* DELETAR */
+
+
+#btnDeletar {
+
+
+    -fx-background-color:#A0522D;
+
+    -fx-text-fill:white;
+
+}
+
+
+
+#btnDeletar:hover {
+
+
+    -fx-background-color:#8B4513;
+
+}
+
+
+
+
+
+
+
+/* ATUALIZAR */
+
+
+#btnAtualizar {
+
+
+    -fx-background-color:#4682B4;
+
+    -fx-text-fill:white;
+
+}
+
+
+
+#btnAtualizar:hover {
+
+
+    -fx-background-color:#1E4F75;
+
+}
+
+
+
+
+
+
+
+/* LIMPAR */
+
+
+#btnLimpar {
+
+
+    -fx-background-color:#CD853F;
+
+    -fx-text-fill:white;
+
+}
+
+
+
+#btnLimpar:hover {
+
+
+    -fx-background-color:#A66A2C;
+
+}
+
+
+
+
+
+
+
+/* LABEL */
+
+#lblTotalRegistros {
+
+
+    -fx-text-fill:#3B2414;
+
+    -fx-font-size:18px;
+
+    -fx-font-weight:bold;
+
+}

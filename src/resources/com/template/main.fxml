@@ -5,64 +5,316 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.MainController">
+
+<AnchorPane
+
+        xmlns="http://javafx.com/javafx/26"
+        xmlns:fx="http://javafx.com/fxml/1"
+
+        fx:controller="com.template.controller.MainController"
+
+        stylesheets="/style.css"
+
+        prefHeight="500"
+        prefWidth="823">
+
 
     <children>
-      <ImageView fitHeight="500.0" fitWidth="829.0" layoutX="-1.0">
-         <image>
-            <Image url="@/images/lobo.jpg" />
-         </image>
-      </ImageView>
 
-        <Text fill="WHITE" layoutX="32.0" layoutY="60.0" text="Animal:" />
-        <TextField fx:id="txtAnimal" layoutX="82.0" layoutY="42.0" />
 
-        <Text fill="WHITE" layoutX="32.0" layoutY="92.0" text="Cor:" />
-        <TextField fx:id="txtCor" layoutX="82.0" layoutY="75.0" />
 
-        <Text fill="WHITE" layoutX="32.0" layoutY="125.0" text="Espécie:" />
-        <TextField fx:id="txtEspecie" layoutX="82.0" layoutY="108.0" />
+        <!-- FUNDO -->
 
-        <Text fill="WHITE" layoutX="32.0" layoutY="157.0" text="Idade:" />
-        <TextField fx:id="txtIdade" layoutX="82.0" layoutY="140.0" />
+        <ImageView
 
-        <Text fill="WHITE" layoutX="32.0" layoutY="191.0" text="Sexo:" />
-        <TextField fx:id="txtSexo" layoutX="82.0" layoutY="174.0" />
+                fitHeight="500"
+                fitWidth="823"
+                layoutX="0"
+                layoutY="0">
 
-        <Button fx:id="btnSalvar" layoutX="698.0" layoutY="274.0" onAction="#BtnSalvarAction" prefHeight="41.0" prefWidth="90.0" text="Salvar" />
+            <image>
 
-        <Button fx:id="btnDeletar" layoutX="698.0" layoutY="321.0" onAction="#BtnDeletarAction" prefHeight="41.0" prefWidth="90.0" text="Deletar" />
+                <Image url="/images/fundo.jpg"/>
 
-        <Button fx:id="btnAtualizar" layoutX="698.0" layoutY="368.0" onAction="#btnAtualizarAction" prefHeight="41.0" prefWidth="90.0" text="Atualizar" />
+            </image>
 
-        <Button fx:id="btnLimpar" layoutX="698.0" layoutY="415.0" onAction="#btnLimparAction" prefHeight="41.0" prefWidth="90.0" text="Limpar" />
+        </ImageView>
 
-        <TableView fx:id="tblAnimal" layoutX="21.0" layoutY="262.0" prefHeight="205.0" prefWidth="584.0">
+
+
+
+        <!-- TEXTOS -->
+
+
+        <Text layoutX="21" layoutY="61" text="Animal:">
+            <font>
+                <Font size="15"/>
+            </font>
+        </Text>
+
+
+        <Text layoutX="21" layoutY="93" text="Cor:">
+            <font>
+                <Font size="15"/>
+            </font>
+        </Text>
+
+
+        <Text layoutX="21" layoutY="126" text="Espécie:">
+            <font>
+                <Font size="15"/>
+            </font>
+        </Text>
+
+
+        <Text layoutX="21" layoutY="158" text="Idade:">
+            <font>
+                <Font size="15"/>
+            </font>
+        </Text>
+
+
+        <Text layoutX="21" layoutY="192" text="Sexo:">
+            <font>
+                <Font size="15"/>
+            </font>
+        </Text>
+
+
+
+
+
+        <!-- CAMPOS -->
+
+
+        <TextField
+                fx:id="txtAnimal"
+                layoutX="82"
+                layoutY="42"
+                prefWidth="220"/>
+
+
+        <TextField
+                fx:id="txtCor"
+                layoutX="82"
+                layoutY="75"
+                prefWidth="220"/>
+
+
+        <TextField
+                fx:id="txtEspecie"
+                layoutX="82"
+                layoutY="108"
+                prefWidth="220"/>
+
+
+        <TextField
+                fx:id="txtIdade"
+                layoutX="82"
+                layoutY="140"
+                prefWidth="220"/>
+
+
+        <TextField
+                fx:id="txtSexo"
+                layoutX="82"
+                layoutY="174"
+                prefWidth="220"/>
+
+
+
+
+
+
+        <!-- BOTÕES -->
+
+
+        <Button
+                fx:id="btnSalvar"
+                id="btnSalvar"
+
+                layoutX="698"
+                layoutY="274"
+
+                prefHeight="41"
+                prefWidth="120"
+
+                text="Salvar"
+
+                onAction="#BtnSalvarAction"/>
+
+
+
+        <Button
+                fx:id="btnDeletar"
+                id="btnDeletar"
+
+                layoutX="698"
+                layoutY="321"
+
+                prefHeight="41"
+                prefWidth="120"
+
+                text="Deletar"
+
+                onAction="#BtnDeletarAction"/>
+
+
+
+        <Button
+                fx:id="btnAtualizar"
+                id="btnAtualizar"
+
+                layoutX="698"
+                layoutY="368"
+
+                prefHeight="41"
+                prefWidth="120"
+
+                text="Atualizar"
+
+                onAction="#btnAtualizarAction"/>
+
+
+
+        <Button
+                fx:id="btnLimpar"
+                id="btnLimpar"
+
+                layoutX="698"
+                layoutY="415"
+
+                prefHeight="41"
+
+                prefWidth="120"
+
+                text="Limpar"
+
+                onAction="#btnLimparAction"/>
+
+
+
+
+
+
+
+        <!-- TABELA -->
+
+
+        <TableView
+
+                fx:id="tblAnimal"
+
+                layoutX="21"
+
+                layoutY="262"
+
+                prefHeight="205"
+
+                prefWidth="584">
+
 
             <columns>
 
-                <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
 
-                <TableColumn fx:id="colAnimal" prefWidth="120.0" text="Animal" />
+                <TableColumn
 
-                <TableColumn fx:id="colCor" prefWidth="110.0" text="Cor" />
+                        fx:id="colId"
 
-                <TableColumn fx:id="colEspecie" prefWidth="110.0" text="Espécie" />
+                        prefWidth="60"
 
-                <TableColumn fx:id="colIdade" prefWidth="80.0" text="Idade" />
+                        text="ID"/>
 
-                <TableColumn fx:id="colSexo" prefWidth="110.0" text="Sexo" />
+
+
+                <TableColumn
+
+                        fx:id="colAnimal"
+
+                        prefWidth="120"
+
+                        text="Animal"/>
+
+
+
+                <TableColumn
+
+                        fx:id="colCor"
+
+                        prefWidth="110"
+
+                        text="Cor"/>
+
+
+
+                <TableColumn
+
+                        fx:id="colEspecie"
+
+                        prefWidth="110"
+
+                        text="Espécie"/>
+
+
+
+                <TableColumn
+
+                        fx:id="colIdade"
+
+                        prefWidth="80"
+
+                        text="Idade"/>
+
+
+
+                <TableColumn
+
+                        fx:id="colSexo"
+
+                        prefWidth="110"
+
+                        text="Sexo"/>
+
 
             </columns>
-        </TableView>
-      <Label layoutX="679.0" layoutY="47.0" text="                     " />
-      <Label fx:id="lblTotalRegistros" layoutX="575.0" layoutY="39.0" text="Label" textFill="WHITE" />
 
+
+        </TableView>
+
+
+
+
+
+        <Label
+
+                fx:id="lblTotalRegistros"
+
+                layoutX="575"
+
+                layoutY="39"
+
+                text="0"/>
+
+        <Label
+
+                fx:id="lblMensagem"
+
+                layoutX="21"
+
+                layoutY="220"
+
+                prefWidth="250"
+
+                text=""/>
     </children>
+
 
 </AnchorPane>
