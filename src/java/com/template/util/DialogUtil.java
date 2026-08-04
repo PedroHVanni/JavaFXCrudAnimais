@@ -1,18 +1,18 @@
 package com.template.util;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
-/**
- * Utilitário responsável por exibir caixas de diálogo nativas do JavaFX.
- */
-public class DialogUtil {
+public final class DialogUtil {
+
+    // Impede que a classe seja instanciada
+    private DialogUtil() {
+    }
 
     public static void exibirInformacao(String titulo, String mensagem) {
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
@@ -20,7 +20,7 @@ public class DialogUtil {
     }
 
     public static void exibirAviso(String titulo, String mensagem) {
-        Alert alert = new Alert(AlertType.WARNING);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
@@ -28,7 +28,7 @@ public class DialogUtil {
     }
 
     public static void exibirErro(String titulo, String mensagem) {
-        Alert alert = new Alert(AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
@@ -36,7 +36,7 @@ public class DialogUtil {
     }
 
     public static boolean exibirConfirmacao(String titulo, String mensagem) {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);

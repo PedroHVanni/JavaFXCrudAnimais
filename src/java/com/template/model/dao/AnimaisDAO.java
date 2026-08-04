@@ -24,11 +24,13 @@ public class AnimaisDAO {
             ps.setInt(4, animal.getIdade());
             ps.setString(5, animal.getSexo());
 
-            int linhas = ps.executeUpdate();
-            return linhas > 0;
+            return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao cadastrar animal no banco de dados: " + e.getMessage(), e);
+            throw new RuntimeException(
+                    "Erro ao cadastrar animal no banco de dados.",
+                    e
+            );
         }
     }
 
@@ -41,22 +43,24 @@ public class AnimaisDAO {
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                AnimalDTO animal = new AnimalDTO(
+                lista.add(new AnimalDTO(
                         rs.getInt("id"),
                         rs.getString("nome_animal"),
                         rs.getString("cor"),
                         rs.getString("especie"),
                         rs.getInt("idade"),
                         rs.getString("sexo")
-                );
-                lista.add(animal);
+                ));
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao listar animais no banco de dados: " + e.getMessage(), e);
-        }
+            return lista;
 
-        return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(
+                    "Erro ao listar animais do banco de dados.",
+                    e
+            );
+        }
     }
 
     public boolean alterarAnimal(AnimalDTO animal) {
@@ -72,11 +76,13 @@ public class AnimaisDAO {
             ps.setString(5, animal.getSexo());
             ps.setInt(6, animal.getId());
 
-            int linhas = ps.executeUpdate();
-            return linhas > 0;
+            return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao atualizar animal no banco de dados: " + e.getMessage(), e);
+            throw new RuntimeException(
+                    "Erro ao atualizar animal no banco de dados.",
+                    e
+            );
         }
     }
 
@@ -88,11 +94,13 @@ public class AnimaisDAO {
 
             ps.setInt(1, id);
 
-            int linhas = ps.executeUpdate();
-            return linhas > 0;
+            return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao excluir animal no banco de dados: " + e.getMessage(), e);
+            throw new RuntimeException(
+                    "Erro ao excluir animal do banco de dados.",
+                    e
+            );
         }
     }
 }

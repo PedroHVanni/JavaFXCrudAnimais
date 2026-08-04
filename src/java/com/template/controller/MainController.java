@@ -1,5 +1,6 @@
 package com.template.controller;
 
+import com.template.validator.AnimalValidador;
 import com.template.model.dto.AnimalDTO;
 import com.template.model.dao.AnimaisDAO;
 import com.template.util.DialogUtil;
@@ -46,11 +47,16 @@ public class MainController {
     private void carregarAnimais() {
         try {
             List<AnimalDTO> lista = animaisDAO.listarAnimais();
+
             tblAnimal.setItems(FXCollections.observableArrayList(lista));
-            tblAnimal.refresh();
+
             lblTotalRegistros.setText("Total de registros: " + lista.size());
+
         } catch (Exception e) {
-            DialogUtil.exibirErro("Erro ao Carregar", "Falha ao buscar animais: " + e.getMessage());
+            DialogUtil.exibirErro(
+                    "Erro ao Carregar",
+                    "Falha ao buscar animais: " + e.getMessage()
+            );
         }
     }
 
@@ -183,15 +189,20 @@ public class MainController {
     }
 
     private boolean validarCampos() {
-        if (txtAnimal.getText().trim().isEmpty() ||
-                txtCor.getText().trim().isEmpty() ||
-                txtEspecie.getText().trim().isEmpty() ||
-                txtIdade.getText().trim().isEmpty() ||
-                txtSexo.getText().trim().isEmpty()) {
 
-            DialogUtil.exibirAviso("Campos Obrigatórios", "Por favor, preencha todos os campos antes de prosseguir.");
+        String mensagem = AnimalValidador.validar(
+                txtAnimal.getText(),
+                txtCor.getText(),
+                txtEspecie.getText(),
+                txtIdade.getText(),
+                txtSexo.getText()
+        );
+
+        if (mensagem != null) {
+            DialogUtil.exibirAviso("Validação", mensagem);
             return false;
         }
+
         return true;
     }
 

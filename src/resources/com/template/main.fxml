@@ -140,32 +140,24 @@
         <Button
                 fx:id="btnSalvar"
                 id="btnSalvar"
-
                 layoutX="698"
                 layoutY="274"
-
                 prefHeight="41"
                 prefWidth="120"
-
                 text="Salvar"
-
-                onAction="#BtnSalvarAction"/>
+                onAction="#btnSalvarAction"/>
 
 
 
         <Button
                 fx:id="btnDeletar"
                 id="btnDeletar"
-
                 layoutX="698"
                 layoutY="321"
-
                 prefHeight="41"
                 prefWidth="120"
-
                 text="Deletar"
-
-                onAction="#BtnDeletarAction"/>
+                onAction="#btnDeletarAction"/>
 
 
 
