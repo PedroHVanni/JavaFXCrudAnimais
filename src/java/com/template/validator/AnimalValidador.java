@@ -4,56 +4,56 @@ import java.util.regex.Pattern;
 
 public class AnimalValidador {
 
-    // Aceita apenas números
     private static final Pattern PADRAO_IDADE =
             Pattern.compile("^\\d+$");
 
-    // Aceita apenas Masculino ou Feminino (maiúsculas e minúsculas)
     private static final Pattern PADRAO_SEXO =
             Pattern.compile("^(?i)(masculino|feminino)$");
 
-    public static String validar(String animal,
-                                 String cor,
-                                 String especie,
-                                 String idade,
-                                 String sexo) {
+    private AnimalValidador() {
+        // Impede a criação de objetos dessa classe
+    }
 
-        if (animal == null || animal.trim().isEmpty()) {
-            return "Informe o nome do animal.";
+    public static String validar(
+            String animal,
+            String cor,
+            String especie,
+            String idade,
+            String sexo
+    ) {
+
+        if (campoVazio(animal)) {
+            return "O campo Animal é obrigatório.";
         }
 
-        if (cor == null || cor.trim().isEmpty()) {
-            return "Informe a cor do animal.";
+        if (campoVazio(cor)) {
+            return "O campo Cor é obrigatório.";
         }
 
-        if (especie == null || especie.trim().isEmpty()) {
-            return "Informe a espécie do animal.";
+        if (campoVazio(especie)) {
+            return "O campo Espécie é obrigatório.";
         }
 
-        if (idade == null || idade.trim().isEmpty()) {
-            return "Informe a idade do animal.";
+        if (campoVazio(idade)) {
+            return "O campo Idade é obrigatório.";
         }
 
-        // Validação da idade usando Pattern
         if (!PADRAO_IDADE.matcher(idade.trim()).matches()) {
             return "A idade deve conter apenas números.";
         }
 
-        int valorIdade = Integer.parseInt(idade);
-
-        if (valorIdade < 0) {
-            return "A idade não pode ser negativa.";
+        if (campoVazio(sexo)) {
+            return "O campo Sexo é obrigatório.";
         }
 
-        if (sexo == null || sexo.trim().isEmpty()) {
-            return "Informe o sexo do animal.";
-        }
-
-        // Validação do sexo usando Pattern
         if (!PADRAO_SEXO.matcher(sexo.trim()).matches()) {
             return "O sexo deve ser Masculino ou Feminino.";
         }
 
         return null;
+    }
+
+    private static boolean campoVazio(String valor) {
+        return valor == null || valor.trim().isEmpty();
     }
 }
