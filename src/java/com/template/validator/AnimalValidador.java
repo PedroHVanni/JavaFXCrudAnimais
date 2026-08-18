@@ -22,38 +22,26 @@ public class AnimalValidador {
             String sexo
     ) {
 
-        if (campoVazio(animal)) {
-            return "O campo Animal é obrigatório.";
+        // Verifica se algum campo obrigatório está vazio
+        if (animal.trim().isEmpty() ||
+                cor.trim().isEmpty() ||
+                especie.trim().isEmpty() ||
+                idade.trim().isEmpty() ||
+                sexo.trim().isEmpty()) {
+
+            return "Preencha todos os campos antes de prosseguir.";
         }
 
-        if (campoVazio(cor)) {
-            return "O campo Cor é obrigatório.";
-        }
-
-        if (campoVazio(especie)) {
-            return "O campo Espécie é obrigatório.";
-        }
-
-        if (campoVazio(idade)) {
-            return "O campo Idade é obrigatório.";
-        }
-
+        // Validação da idade
         if (!PADRAO_IDADE.matcher(idade.trim()).matches()) {
             return "A idade deve conter apenas números.";
         }
 
-        if (campoVazio(sexo)) {
-            return "O campo Sexo é obrigatório.";
-        }
-
+        // Validação do sexo
         if (!PADRAO_SEXO.matcher(sexo.trim()).matches()) {
             return "O sexo deve ser Masculino ou Feminino.";
         }
 
         return null;
-    }
-
-    private static boolean campoVazio(String valor) {
-        return valor == null || valor.trim().isEmpty();
     }
 }
