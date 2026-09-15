@@ -5,8 +5,7 @@ import com.template.service.AnimalService;
 import com.template.util.AnimalFormUtil;
 import com.template.util.AnimalTableUtil;
 import com.template.util.DialogUtil;
-import com.template.validator.AnimalValidador;
-
+import com.template.validator.IAnimalValidador;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +14,12 @@ import javafx.scene.control.*;
 import java.util.List;
 
 public class MainController {
+
+    private final IAnimalValidador userValidador;
+
+    public MainController(IAnimalValidador userValidador){
+        this.userValidador = userValidador;
+    }
 
     @FXML private Button btnSalvar, btnDeletar, btnLimpar, btnAtualizar;
     @FXML private TextField txtAnimal, txtCor, txtEspecie, txtIdade, txtSexo;
@@ -116,6 +121,7 @@ public class MainController {
 
     @FXML
     private void btnAtualizarAction(ActionEvent event) {
+
         AnimalDTO animal = tblAnimal.getSelectionModel().getSelectedItem();
 
         if (animal == null) {
@@ -163,19 +169,12 @@ public class MainController {
     }
 
     private boolean validarCampos() {
-        String mensagem = AnimalValidador.validar(
+        return userValidador.validarAnimal(
                 txtAnimal.getText(),
                 txtCor.getText(),
                 txtEspecie.getText(),
                 txtIdade.getText(),
                 txtSexo.getText()
         );
-
-        if (mensagem != null) {
-            DialogUtil.exibirAviso("Validação", mensagem);
-            return false;
-        }
-
-        return true;
     }
 }

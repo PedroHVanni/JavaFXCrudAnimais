@@ -3,15 +3,10 @@ package com.template.validator;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.template.util.DialogUtil.exibirErro;
+public class AnimalValidador implements IAnimalValidador {
 
-public class AnimalValidador {
-
-    private AnimalValidador() {
-        // Impede a criação de objetos dessa classe
-    }
-
-    public static String validar(
+    @Override
+    public boolean validarAnimal(
             String animal,
             String cor,
             String especie,
@@ -51,11 +46,25 @@ public class AnimalValidador {
         for (Validador<String> validador : validadores) {
 
             if (!validador.validar(validador.getValor())) {
-
-                return validador.getMensagemErro();
+                com.template.util.DialogUtil.exibirErro(
+                        "Validação",
+                        validador.getMensagemErro()
+                );
+                return false;
             }
         }
 
-        return null;
+        // Garante que a idade possa ser convertida para inteiro.
+        try {
+            Integer.parseInt(idade.trim());
+        } catch (NumberFormatException e) {
+            com.template.util.DialogUtil.exibirErro(
+                    "Validação",
+                    "O campo Idade deve conter apenas números."
+            );
+            return false;
+        }
+
+        return true;
     }
 }
